@@ -36,6 +36,8 @@ function App() {
  
   function submitHandler(event) { 
     event.preventDefault();
+    
+    console.log("Finally Printing the Form Data");
     console.log(formData);
   }
 
@@ -163,7 +165,7 @@ function App() {
 
           <legend>By Email</legend>
 
-          <div>
+          <div className='checkboxes'>
             <input 
             type='checkbox'
             onChange={changeHandler}
@@ -172,14 +174,14 @@ function App() {
             checked={formData.comments}
             />  
 
-            <div>
+            <div className='checkbox-label'>
               <label htmlFor='comments'>Comments</label>
-              <p>Get notified when someone posts a comment on posting</p>
-          </div>
+              <p className='checkbox-para'>Get notified when someone posts a comment on posting</p>
+            </div>
 
         </div>
 
-        <div>
+        <div className='checkboxes'>
             <input 
             type='checkbox'
             onChange={changeHandler}
@@ -188,13 +190,13 @@ function App() {
             checked={formData.candidates}
             />  
 
-            <div>
-              <label htmlFor='candidates'>candidates</label>
-              <p>Get notified when a candidate applies for a job</p>
+            <div className='checkbox-label'>
+              <label htmlFor='candidates'>Candidates</label>
+              <p className='checkbox-para'>Get notified when a candidate applies for a job</p>
             </div>
         </div>
 
-        <div>
+        <div className='checkboxes'>
             <input 
             type='checkbox'
             onChange={changeHandler}
@@ -203,9 +205,9 @@ function App() {
             checked={formData.offers}
             />  
 
-            <div>
+            <div className='checkbox-label'>
               <label htmlFor='offers'>Offers</label>
-              <p>Get notified when a candidate accepts or rejects an offer</p>
+              <p className='checkbox-para'>Get notified when a candidate accepts or rejects an offer</p>
             </div>
           </div>
 
@@ -216,43 +218,52 @@ function App() {
         <fieldset>
 
           <legend>Push Notifications</legend>
-          <p>These are delivered via SMS to your mobile phone.</p>
+          <p >These are delivered via SMS to your mobile phone.</p>
           
           <br/>
-          
-          <input 
-          type='radio'
-          onChange={changeHandler}
-          name='pushNotifications'
-          value='Everything'
-          id='pushEverything'
-          checked={formData.pushNotifications === 'Everything'}
-          />
-          <label htmlFor='everything'>Everything</label>
 
-          <br/>
-        
-          <input 
-          type='radio'
-          onChange={changeHandler}
-          name='pushNotifications'
-          value='Same as email'
-          id='pushEmail'
-          checked={formData.pushNotifications === 'Same as email'}
-          />
-          <label htmlFor='pushEmail'>Same As Email</label>
+          <div className='radio-everything'>
+            <input 
+            className='radio-input'
+            type='radio'
+            onChange={changeHandler}
+            name='pushNotifications'
+            value='Everything'
+            id='pushEverything'
+            checked={formData.pushNotifications === 'Everything'}
+            />
 
-          <br/>
+            <label htmlFor='pushEverything'>Everything</label>
+          </div>
 
-          <input 
-          type='radio'
-          onChange={changeHandler}
-          name='pushNotifications'
-          value='No Push Notifications'
-          id='pushNothing'
-          checked={formData.pushNotifications === 'No Push Notifications'}
-          />
-          <label htmlFor='pushNothing'>No Push Notifications</label>
+
+          <div className='radio-notification'>
+            <input 
+            className='radio-input'
+            type='radio'
+            onChange={changeHandler}
+            name='pushNotifications'
+            value='Same as email'
+            id='pushEmail'
+            checked={formData.pushNotifications === 'Same as email'}
+            />
+            <label htmlFor='pushEmail'>Same As Email</label>
+
+          </div>
+
+          <div className='radio-push'>
+            <input 
+            className='radio-input'
+            type='radio'
+            onChange={changeHandler}
+            name='pushNotifications'
+            value='No Push Notifications'
+            id='pushNothing'
+            checked={formData.pushNotifications === 'No Push Notifications'}
+            />
+            <label htmlFor='pushNothing'>No Push Notifications</label>
+          </div>
+
 
         </fieldset>
         
